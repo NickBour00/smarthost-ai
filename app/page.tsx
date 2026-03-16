@@ -1,12 +1,21 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function Home() {
   const [input, setInput] = useState("")
   const [result, setResult] = useState("")
   const [loading, setLoading] = useState(false)
   const [tone, setTone] = useState("friendly")
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const message = params.get("message")
+
+    if (message) {
+      setInput(message)
+    }
+  }, [])
 
   async function generateReply(message?: string) {
     const textToSend = message ?? input
@@ -159,7 +168,6 @@ export default function Home() {
           }}
         >
           <h3>Προτεινόμενη απάντηση:</h3>
-
           <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
             <p>{result}</p>
 

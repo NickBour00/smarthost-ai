@@ -6,7 +6,9 @@
   "action": {
     "default_popup": "popup.html"
   },
-  "permissions": ["activeTab"],
+  "permissions": [
+    "activeTab"
+  ],
   "host_permissions": [
     "https://smarthost-ai.vercel.app/*"
   ]
