@@ -1,21 +1,23 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { useSearchParams } from "next/navigation"
 
 export default function Home() {
+  const searchParams = useSearchParams()
+
   const [input, setInput] = useState("")
   const [result, setResult] = useState("")
   const [loading, setLoading] = useState(false)
   const [tone, setTone] = useState("friendly")
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search)
-    const message = params.get("message")
+    const message = searchParams.get("message")
 
     if (message) {
       setInput(message)
     }
-  }, [])
+  }, [searchParams])
 
   async function generateReply(message?: string) {
     const textToSend = message ?? input
