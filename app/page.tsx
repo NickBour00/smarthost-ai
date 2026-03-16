@@ -12,12 +12,12 @@ export default function Home() {
   const [tone, setTone] = useState("friendly")
 
   useEffect(() => {
-    const message = searchParams.get("message")
+  const message = searchParams.get("message")
 
-    if (message) {
-      setInput(message)
-    }
-  }, [searchParams])
+  if (message && message !== input) {
+    setInput(decodeURIComponent(message))
+  }
+}, [searchParams])
 
   async function generateReply(message?: string) {
     const textToSend = message ?? input
