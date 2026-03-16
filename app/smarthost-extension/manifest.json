@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "SmartHost AI",
+  "version": "1.0",
+  "description": "AI replies for Airbnb hosts",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "permissions": ["activeTab"],
+  "host_permissions": [
+    "https://smarthost-ai.vercel.app/*"
+  ]
+}
